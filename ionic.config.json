@@ -1,0 +1,7 @@
+{
+  "name": "CompetitionsApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

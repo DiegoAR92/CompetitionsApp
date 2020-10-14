@@ -22,14 +22,10 @@ export class LoginPage implements OnInit {
   }
 
   login(){
-    console.log(this.user);
-    console.log(this.password);
-
     /*if(this.email !== this.emailRepeat){
       this.presentToast('El email no coincide');
       return;
     }*/
-
     let dataUser = new UserData(this.user, this.password,null);
 
     this.loginSvc.login(dataUser)
@@ -43,11 +39,14 @@ export class LoginPage implements OnInit {
       }
 
       this.presentToast('Login correcto.');
-      this.router.navigate['menu'];
+      this.router.navigate(['menu']);
       
     });
   }
 
+  goToRegister(){
+    this.router.navigate(['register']);
+  }
 
   remember(){
     this.presentToast('No funciono.');

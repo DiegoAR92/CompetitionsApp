@@ -1,0 +1,47 @@
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col text-center>
+        <div class="login ion-text-center">
+        <ion-item>
+          <ion-label>Usuario</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Usuario" [(ngModel)]="user"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Contraseña</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" placeholder="Contraseña" [(ngModel)]="password" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" placeholder="Repita la contraseña" [(ngModel)]="passwordRepeat" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Email</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input type="email" placeholder="Email" [(ngModel)]="email" 
+          pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>
+        </ion-item>
+          <ion-item>
+            <ion-input type="email" placeholder="Repita su email" [(ngModel)]="emailRepeat" 
+            pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-buttons slot="start">
+              <ion-button color="primary" (click)="register()" expand="block" fill="clear" shape="round">
+                Registrarse
+              </ion-button>
+              <ion-button color="danger" (click)="goBack()" expand="block" fill="clear" shape="round">
+                Cancelar
+              </ion-button>
+            </ion-buttons>
+            
+        </ion-item>
+      </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

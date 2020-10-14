@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { User, UserResponse } from '../../interfaces/dataUsers';
+import { User, LoginResponse,CreateResponse } from '../../interfaces/dataUsers';
 import { UserData } from '../models/userData';
 
 const URL = environment.url;
@@ -28,13 +28,13 @@ export class LoginServiceService {
 
   login(user:UserData){
     
-    return this.ejecutarPost<UserResponse>('find', user)
+    return this.ejecutarPost<LoginResponse>('find', user)
 
   }
 
   createUser(user:UserData){
 
-    return this.ejecutarPost<UserResponse>('create', user)
+    return this.ejecutarPost<CreateResponse>('create', user)
 
   }
 

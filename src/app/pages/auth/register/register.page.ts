@@ -35,7 +35,6 @@ export class RegisterPage implements OnInit {
   }
 
   goBack(){
-    
   }
 
 

@@ -3,6 +3,8 @@ import { LoginServiceService } from '../../../services/login-service.service';
 import { UserData } from '../../../models/userData';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { User } from '../../../../interfaces/dataUsers';
 
 @Component({
   selector: 'app-login',
@@ -13,11 +15,14 @@ export class LoginPage implements OnInit {
 
   constructor(private loginSvc: LoginServiceService,
     public toastCtrl: ToastController,
-    private router: Router) { }
+    private router: Router,
+    private fb: FormBuilder) { }
 
-  user:string;
-  password:string;
-  
+  loginForm = this.fb.group({
+    user: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(4)])
+  });
+
   ngOnInit() {
   }
 
@@ -26,7 +31,13 @@ export class LoginPage implements OnInit {
       this.presentToast('El email no coincide');
       return;
     }*/
-    let dataUser = new UserData(this.user, this.password,null);
+
+    console.log(this.loginForm.value)
+
+    let dataUser = new UserData(
+      this.loginForm.controls.user.value, 
+      this.loginForm.controls.password.value,
+      null);
 
     this.loginSvc.login(dataUser)
     .subscribe(resp=> {
